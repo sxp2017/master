@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<title> v-model的修饰符使用</title>
+		<style></style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1、修饰符 lazy 懒加载，失去焦点或敲击回车的时候才会更新data数据-->
+			<input type="text" v-model.lazy="message" />{{message}} <br><br>
+
+			<!-- 2、number修饰符，只能输入数值类型 ,v-model默认会把类型转换为string类型，如果需要int类型需增加v-model.number-->
+			<input type="number" v-model.number="age" />
+			<h4>{{age}}--{{typeof age}}</h4><br><br>
+			
+			<!-- 3、trim 去空格 -->
+			<input type="text" v-model.trim="name" />{{name}}
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			message: '',
+			age: 0,
+			name:''
+		},
+	})
+</script>

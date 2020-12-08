@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js" type="text/javascript">
+			
+		</script>
+		<title></title>
+		<!--mustache翻译为胡须，形象与{{}}；大括号中可绑定变量、表达式等-->
+	</head>
+	<body>
+		<div id="app">
+			{{mustache}}
+			{{mustache+expression}}
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			mustache:'mustache语法',
+			expression:'表达式'
+		}		
+	})
+	</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js" type="text/javascript"></script>
+		<title>哪些数组的方法是响应式</title>
+	</head>
+	<body>
+		<div id="app">
+				{{arrayList}}
+				<br/><button type="button" @click="arrayPop">按钮</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+		var vm=new Vue({
+			el:'#app',
+			data:{
+			arrayList:['a','b','c','d','e']
+			},
+			methods:{
+				arrayPop(){
+					//push在数组的末尾添加元素
+					//this.arrayList.push('1');
+					//pop删除数组中最后一个元素
+					//this.arrayList.pop();
+					//shift从数组的第一个元素开始删除
+					//this.arrayList.shift();
+					//unshift从数组的第一个元素开始添加
+					//this.arrayList.unshift('0');
+					//sort排序
+					//this.arrayList.sort('0');
+					//reverse反转
+					//this.arrayList.reverse();
+					//splice截取和替换
+					//this.arrayList.splice(0,1);
+					//this.arrayList.splice(0,1,'z');
+					//set('要修改的对象','索引值','修改后的值')
+					Vue.set(this.arrayList,0,'z')
+				}
+			
+			},
+			
+		})
+
+	//传入多个参数的方法
+	// sum(1,2,3,4,5,6,7,8,9)
+	// function sum(...num)
+	// {
+	// 	console.log(num)
+	// }
+</script>

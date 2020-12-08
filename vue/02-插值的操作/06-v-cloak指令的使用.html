@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js" type="text/javascript"></script>
+		<title>v-cloak</title>
+		<style type="text/css">
+				[v-cloak]{
+					display: none;
+				}
+		</style>
+	</head>
+	<body>
+		<!--v-cloak(cloak遮挡，斗篷),vue未解析或卡死情况下，未加载到data的时，页面会出现{{url}},这是可添加cloak指令进行隐藏-->
+		<div id="app" v-cloak>
+			<h3 >{{url}}</h3>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	setTimeout(function(){
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				url:'你好啊！'
+			}
+		})
+	},3000)
+	
+</script>

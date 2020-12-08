@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<title> v-model结合checkbox类型</title>
+		<style></style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1、单选框 -->
+			<!-- <div class="mui-input-row mui-checkbox ">
+				<label for="agree">
+					<input id="agree" name="agree" type="checkbox" v-model="agree">已阅读协议
+				</label><br>
+				<label>您选择是：{{agree}}</label>
+			</div>
+			<button type="button" :disabled="!agree">下一步</button> -->
+
+			<!-- 2、多选框 -->
+			<!-- <div class="mui-input-row mui-checkbox ">
+				<label for="agree1">
+					<input id="agree1" name="agree1" type="checkbox" value="篮球" v-model="hobbies">篮球
+				</label>
+				<label for="agree2">
+					<input id="agree2" name="agree2" type="checkbox" value="足球" v-model="hobbies">足球
+				</label>
+				<label for="agree3">
+					<input id="agree3" name="agree3" type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+				</label>
+				<label for="agree4">
+					<input id="agree4" name="agree4" type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+				</label>
+				<br>
+				<label>您的爱好是：{{hobbies}}</label>
+			</div> -->
+			
+			<!-- 动态绑定到hobbies 主要运用v-bind:value-->
+			<label v-for="user in userOptions" :for="user">
+				<input type="checkbox" :value="user" :id="user" v-model="hobbies"/>{{user}}
+			</label>
+			<br><br>{{hobbies}}
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			agree: false,
+			hobbies: [],
+			userOptions:['篮球','足球','高尔夫球','桌球']
+		},
+	})
+</script>

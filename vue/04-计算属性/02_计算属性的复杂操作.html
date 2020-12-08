@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<title>计算属性的复杂属性</title>
+		<style>
+			.active{color: red;}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			
+			<h2>总价格：{{totalPrice}}</h2>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var a =new Vue({
+		el:'#app',
+		data:{
+			books:[
+				{id:0,name:"vue前端",price:119},
+				{id:1,name:"C#",price:110},
+				{id:2,name:"java",price:120},
+				{id:3,name:"js",price:114}
+			]
+		},
+		computed:{//计算属性的函数
+			totalPrice:function(){
+				let total=0;
+				for(let i=0;i<this.books.length;i++){
+					total+=this.books[i].price
+				}
+				return total;
+			}
+		}
+	})
+	/*1、methods和computed看起来都可已实现我们的功能；
+	2、那为什么还有计算属性这个功能
+	3、原因：计算属性会进行缓存，如果多次使用时，计算属性只会调用一次*/
+</script>

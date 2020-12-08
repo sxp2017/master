@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<title>v-on的修饰符</title>
+		<style></style>
+	</head>
+	<body>
+		<!--1、 @click.stop的作用是分离div和按钮的点击事件 -->
+		<!-- <div id="app" @click="btndiv">
+			aaaaaaaa
+			<button type="button" @click.stop="btn1">按钮1</button>
+		</div> -->
+		<div id="app">
+			<!-- 2、prevent组织默认点击事件，这里组织action -->
+			<form action="www.baidu.com">
+				<input type="submit" value="提交" @click.prevent="form1" />
+			</form><br/>
+			<!-- 3、监听键盘的按键那个受到按下，keyCode键盘编码，keyAlias键盘简写 
+			keydown键盘点下事件，keyup键盘弹起事件-->
+			<input type="text" value="请输入" @keyup="KeyUp" />
+			<!-- 4、自定义组件的时候用到 @click.native-->
+			<!-- 5、once只触发一次事件 -->
+			<br/><br/><button type="button" @click.once="btn2">按钮2</button>
+		</div> 
+	</body>
+</html>
+<script type="text/javascript">
+	var a = new Vue({
+		el: '#app',
+		data: {
+
+		},
+		methods: {
+			btndiv: function() {
+				console.log("div点击");
+			},
+			btn1: function() {
+				console.log("btn1点击");
+			},
+			form1: function() {
+				console.log("提交");
+			},
+			KeyUp: function() {
+				console.log("键盘抬起次数");
+			},
+			btn2:function(){
+				console.log("只触发一次点击事件");
+			}
+		}
+	})
+</script>

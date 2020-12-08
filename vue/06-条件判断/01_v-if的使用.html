@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<title>v-if的使用</title>
+		<style></style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <div id="id1" v-if="isshow">
+				我是if
+			</div>
+			<div id="id2" v-else>
+				我是else
+			</div> -->
+			<h2 v-if="score>=90">优秀</h2>
+			<h2 v-else-if ="score>=80">良好</h2>
+			<h2 v-else-if ="score>=60">合格</h2>
+			<h2 v-else>不及格</h2>
+			
+			<h1>{{computedScore}}</h1>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app',
+		data: {
+			//isshow: false
+			score:0,
+		},
+		computed:{
+			computedScore(){
+				let showMessage=';'
+				if(this.score>=90)
+				{
+					showMessage='优秀';
+				}
+				else if(this.score>=60)
+				{
+					showMessage='及格';
+				}
+				else
+				{
+					showMessage='不及格';
+				}
+				return showMessage;
+			}
+		}
+	})
+</script>

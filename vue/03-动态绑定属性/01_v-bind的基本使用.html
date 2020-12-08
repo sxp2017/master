@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<title>v-bind</title>
+	</head>
+	<body>
+		<div id="app">
+			<span>{{message}}</span>
+			<img v-bind:src="url"/>
+			<a v-bind:href="onclick">百度一下</a>
+			<!--语法糖写法-->
+			<img :src="url"/>
+			<a :href="onclick">百度一下</a>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var a =new Vue({
+		el:'#app',
+		data:{
+			message:'Holle Vue.js !',
+			url:'http://5b0988e595225.cdn.sohucs.com/images/20190123/1c74cdab32b84b92a9feac276b8d3997.gif',
+			onclick:'https://www.baidu.com/',
+		},
+	})
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="js/vue.js"></script>
+		<title>我的第一个vue项目</title>
+	</head>
+	<body>
+		<div id="app">
+			<span>{{message}}</span>
+			<button type="button" id="meth" v-on:click="reverseMessage">反转消息</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var a =new Vue({
+		el:'#app',
+		data:{
+			message:'Holle Vue.js !',
+		},
+		methods:{
+			reverseMessage:function(){
+				this.message=this.message.split('').reverse().join('')
+			}
+		}
+	})
+</script>
